@@ -1,0 +1,30 @@
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+apply plugin: 'dagger.hilt.android.plugin'
+dependencies {
+    //Paging
+    implementation 'androidx.paging:paging-runtime-ktx:3.1.0'
+    //progress bar
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    //Room
+    def room_version = "2.4.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+}
