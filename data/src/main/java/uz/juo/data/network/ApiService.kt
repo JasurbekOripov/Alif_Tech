@@ -8,5 +8,5 @@ import uz.juo.domain.models.BookData
 interface ApiService {
 
     @GET("upcomingGuides/")
-    suspend fun getBookData(@Query("limit") limit: Int = 3): Response<BookData>
+    suspend fun getBookData(@Query("limit") limit: Int = 30): Response<BookData>
 }

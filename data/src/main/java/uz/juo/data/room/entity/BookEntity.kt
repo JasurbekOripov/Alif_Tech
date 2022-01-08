@@ -8,9 +8,7 @@ import uz.juo.domain.models.Venue
 data class BookEntity(
     val endDate: String,
     val icon: String,
-    val loginRequired: Boolean,
     val name: String,
-    val objType: String,
     val startDate: String,
     @PrimaryKey
     val url: String,

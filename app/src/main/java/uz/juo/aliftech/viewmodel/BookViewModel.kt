@@ -8,11 +8,15 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import uz.juo.aliftech.utils.BookResource
+import uz.juo.data.room.AppDataBase
 import uz.juo.domain.interactor.BookInteractor
 import javax.inject.Inject
 
 @HiltViewModel
-class BookViewModel @Inject constructor(private val bookInteractor: BookInteractor) : ViewModel() {
+class BookViewModel @Inject constructor(
+    private val bookInteractor: BookInteractor,
+    val appDataBase: AppDataBase
+) : ViewModel() {
     fun getBooks(): StateFlow<BookResource> {
         val stateFlow = MutableStateFlow<BookResource>(BookResource.Loading)
         viewModelScope.launch {
@@ -26,4 +30,6 @@ class BookViewModel @Inject constructor(private val bookInteractor: BookInteract
         }
         return stateFlow
     }
+
+    var dao = appDataBase.dao()
 }
