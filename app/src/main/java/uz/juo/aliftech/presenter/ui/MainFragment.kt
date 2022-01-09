@@ -47,7 +47,6 @@ private const val ARG_PARAM2 = "param2"
 class MainFragment : Fragment() {
     private val viewmodel: BookViewModel by viewModels()
     var liveData = ArrayList<Data>()
-    lateinit var db: AppDataBase
     lateinit var adapter: BookRvAdapter
     var _binding: FragmentMainBinding? = null
     val binding get() = _binding!!
@@ -77,7 +76,7 @@ class MainFragment : Fragment() {
                         bundleOf(Pair("param1", data.url))
                     )
                 }
-            })
+            },requireContext())
         binding.rv.adapter = adapter
         val progressBar = binding.progress as ProgressBar
         val doubleBounce: Sprite = FadingCircle()
